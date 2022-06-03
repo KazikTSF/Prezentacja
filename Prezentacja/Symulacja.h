@@ -12,7 +12,7 @@ private:
 	state board[100][100]; //(0,0) w lewym górnym rogu
 	void placeBlobs();
 	void placeFood();
+	void day();
 public:
 	Symulacja(int, int);
-	void start();
 };
