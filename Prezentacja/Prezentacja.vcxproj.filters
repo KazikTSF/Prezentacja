@@ -18,5 +18,19 @@
     <ClCompile Include="Prezentacja.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Symulacja.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Obiekt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Symulacja.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Obiekt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
