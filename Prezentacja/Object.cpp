@@ -38,7 +38,7 @@ bool Object::shouldMutate()
 	return false;
 }
 
-int Object::calculateMovement()
+int Object::calculateMovement(Object** board)
 {
 	int blobCount = 0;
 	int tabi[398];

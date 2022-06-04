@@ -15,7 +15,7 @@ public:
 	Object();
 	Object(int, int, state);
 	bool shouldReproduce();
-	int calculateMovement();
+	int calculateMovement(Object**);
 	void mutate();
 	state getState();
 	int getX();
