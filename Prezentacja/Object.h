@@ -10,7 +10,7 @@ private:
 	state objectState;
 public:
 	Object();
-	Object(int, int, int); //x, y, state
+	Object(int, int, state);
 	bool shouldReproduce();
 	bool shouldMutate();
 	int calculateMovement();

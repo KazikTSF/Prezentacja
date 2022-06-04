@@ -8,7 +8,7 @@ Object::Object()
 	throw "Object needs parameters";
 }
 
-Object::Object(int x, int y, int s)
+Object::Object(int x, int y, state s)
 {
 	Object::eaten = 1;
 	Object::size = 1;
@@ -16,20 +16,7 @@ Object::Object(int x, int y, int s)
 	Object::sense = 1;
 	Object::x = x;
 	Object::y = y;
-	switch (s)
-	{
-	case 0:
-		Object::objectState = empty;
-		break;
-	case 1:
-		Object::objectState = food;
-		break;
-	case 2:
-		Object::objectState = blob;
-		break;
-	default:
-		throw "Illegal Argument in object state";
-	}
+	Object::objectState = s;
 }
 
 bool Object::shouldReproduce()
