@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include "State.h"
 
-Simulation::Simulation(int foodAmount, int blobAmount) : 
-	foodAmount(foodAmount), blobAmount(blobAmount) 
+Simulation::Simulation(int foodAmount, int blobAmount)
 {
+	Simulation::foodAmount = foodAmount;
+	Simulation::blobAmount = blobAmount;
 	placeBlobs();
 	for(int i = 0; i < 1000000; i++)
 		day();
@@ -14,6 +15,51 @@ Simulation::Simulation(int foodAmount, int blobAmount) :
 void Simulation::placeBlobs()
 {
 	srand(time(NULL));
+    for (int i = 0; i < Simulation::blobAmount; i++)
+    {
+        if (rand() % 2 == 0)
+        {
+            if (rand() % 2 == 0)
+            {
+                int x = 0;
+                int y = rand() % 100;
+                if (board[x][y].getState() == empty)
+                    board[x][y] = Object(x, y, blob);
+                else
+                    i--;
+            }
+            else
+            {
+                int x = 99;
+                int y = rand() % 100;
+                if (board[x][y].getState() == empty)
+                    board[x][y] = Object(x, y, blob);
+                else
+                    i--;
+            }
+        }
+        else
+        {
+            if (rand() % 2 == 0)
+            {
+                int x = rand() % 100;
+                int y = 0;
+                if (board[x][y].getState() == empty)
+                    board[x][y] = Object(x, y, blob);
+                else
+                    i--;
+            }
+            else
+            {
+                int x = rand() % 100;
+                int y = 99;
+                if (board[x][y].getState() == empty)
+                    board[x][y] = Object(x, y, blob);
+                else
+                    i--;
+            }
+        }
+    }
 }
 
 void Simulation::placeFood()
