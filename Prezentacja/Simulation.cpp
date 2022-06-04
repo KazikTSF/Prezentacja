@@ -76,6 +76,7 @@ void Simulation::placeFood()
 	}
 }
 
+
 void Simulation::day()
 {
 	for (int i = 1; i < 99; i++)

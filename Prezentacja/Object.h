@@ -7,6 +7,8 @@ private:
 	int sense; // jak daleko blob widzi
 	int x, y;
 	bool eaten;
+	bool moved;
+	float energy;
 	state objectState;
 public:
 	Object();
