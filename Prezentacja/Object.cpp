@@ -40,6 +40,8 @@ bool Object::shouldReproduce()
 
 bool Object::shouldMutate()
 {
+	if (objectState != blob)
+		return false;
 	srand(time(NULL));
 	int r = rand() % 100 + 1;
 	if (r < 5)

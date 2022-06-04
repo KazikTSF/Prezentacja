@@ -6,6 +6,7 @@
 Simulation::Simulation(int foodAmount, int blobAmount) : 
 	foodAmount(foodAmount), blobAmount(blobAmount) 
 {
+	placeBlobs();
 	for(int i = 0; i < 1000000; i++)
 		day();
 }

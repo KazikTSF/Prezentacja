@@ -2,7 +2,6 @@
 #include "State.h"
 class Object
 {
-
 private:
 	float size, speed;
 	int sense; // jak daleko blob widzi
