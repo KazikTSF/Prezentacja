@@ -23,8 +23,10 @@ bool Object::shouldReproduce()
 {
 	if(!Object::eaten)
 		return false;
+	if ((x != 0 || y != 0) && (x != 99 || y != 99))
+		return false;
+	return true;
 }
-
 bool Object::shouldMutate()
 {
 	if (objectState != blob)
@@ -64,4 +66,57 @@ int Object::calculateMovement()
 state Object::getState()
 {
 	return Object::objectState;
+}
+
+int Object::getX()
+{
+	return Object::x;
+}
+
+int Object::getY()
+{
+	return Object::y;
+}
+
+int Object::getSense()
+{
+	return Object::sense;
+}
+
+int Object::getSize()
+{
+	return Object::size;
+}
+int Object::getSpeed()
+{
+	return Object::speed;
+}
+
+void Object::mutate()
+{
+	if (shouldMutate())
+	{
+		srand(time(NULL));
+		int x = rand() % 3;
+		int y = rand() % 2;
+		float z;
+		if (y == 1)
+			z = 0.1;
+		else
+			z = -0.1;
+		switch (x)
+		{
+		case 0:
+			size += z;
+			break;
+		case 1:
+			speed += z;
+			break;
+		case 2:
+			sense += z * 10;
+			break;
+		default:
+			throw "if this happened im extremly stupid xd";
+		}
+	}
 }

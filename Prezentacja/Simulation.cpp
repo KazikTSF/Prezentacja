@@ -12,6 +12,11 @@ Simulation::Simulation(int foodAmount, int blobAmount)
 		day();
 }
 
+state Simulation::getBoardState(int x, int y)
+{
+    return board[x][y].getState();
+}
+
 void Simulation::placeBlobs()
 {
 	srand(time(NULL));
@@ -83,4 +88,122 @@ void Simulation::day()
 		for (int j = 1; j < 99; j++)
 			board[i][j] = Object(i, j, empty);
 	placeFood();
+}
+
+void Simulation::reproduce()
+{
+    for (int i = 0; i < 100; i++)
+    {
+        if (Simulation::board[i][0].getState() == blob)
+        {
+            if (Simulation::board[i][0].shouldReproduce())
+            {
+                for(int j = 0; true; j++)
+                {
+                    if (i-j > 0)
+                    {
+                        if (Simulation::board[i - j][0].getState() == empty)
+                        {
+                            Simulation::board[i - j][0] = Object(i - j, 0, blob);
+                            Simulation::board[i - j][0].mutate();
+                            break;
+                        }
+                    }
+                    if (i+j < 99)
+                    {
+                        if (Simulation::board[i + j][0].getState() == empty)
+                        {
+                            Simulation::board[i + j][0] = Object(i + j, 0, blob);
+                            Simulation::board[i + j][0].mutate();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (Simulation::board[i][99].getState() == blob)
+        {
+            if (Simulation::board[i][0].shouldReproduce())
+            {
+                for (int j = 0; true; j++)
+                {
+                    if (i - j > 0)
+                    {
+                        if (Simulation::board[i - j][99].getState() == empty)
+                        {
+                            Simulation::board[i - j][99] = Object(i - j, 99, blob);
+                            Simulation::board[i - j][99].mutate();
+                            break;
+                        }
+                    }
+                    if (i + j < 99)
+                    {
+                        if (Simulation::board[i + j][99].getState() == empty)
+                        {
+                            Simulation::board[i + j][99] = Object(i + j, 99, blob);
+                            Simulation::board[i + j][99].mutate();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    for (int i = 0; i < 100; i++)
+    {
+        if (Simulation::board[0][i].getState() == blob)
+        {
+            if (Simulation::board[0][i].shouldReproduce())
+            {
+                for (int j = 0; true; j++)
+                {
+                    if (i - j > 0)
+                    {
+                        if (Simulation::board[0][i - j].getState() == empty)
+                        {
+                            Simulation::board[0][i - j] = Object(0, i - j, blob);
+                            Simulation::board[0][i - j].mutate();
+                            break;
+                        }
+                    }
+                    if (i + j < 99)
+                    {
+                        if (Simulation::board[0][i + j].getState() == empty)
+                        {
+                            Simulation::board[0][i + j] = Object(0, i + j, blob);
+                            Simulation::board[0][i + j].mutate();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (Simulation::board[99][i].getState() == blob)
+        {
+            if (Simulation::board[99][i].shouldReproduce())
+            {
+                for (int j = 0; true; j++)
+                {
+                    if (i - j > 0)
+                    {
+                        if (Simulation::board[99][i - j].getState() == empty)
+                        {
+                            Simulation::board[99][i - j] = Object(99, i - j, blob);
+                            Simulation::board[99][i - j].mutate();
+                            break;
+                        }
+                    }
+                    if (i + j < 99)
+                    {
+                        if (Simulation::board[99][i + j].getState() == empty)
+                        {
+                            Simulation::board[99][i + j] = Object(99, i + j, blob);
+                            Simulation::board[99][i + j].mutate();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
