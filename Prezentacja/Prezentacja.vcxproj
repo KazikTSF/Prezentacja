@@ -139,14 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Obiekt.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Prezentacja.cpp" />
-    <ClCompile Include="Symulacja.cpp" />
+    <ClCompile Include="Simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Obiekt.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Symulacja.h" />
+    <ClInclude Include="Simulation.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Prezentacja.rc" />
